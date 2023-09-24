@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 const connectDataBase = require('./server/data/database');
@@ -9,6 +10,8 @@ connectDataBase();
 
 //Middleware para manejar el JSON
 app.use(express.json())
+
+app.use(cors())
 
 app.use('/', albumRoutes)
 
